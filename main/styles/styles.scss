@@ -1,0 +1,307 @@
+$backgroundColor: rgb(13, 39, 78);
+$fontColor: rgb(240, 205, 255);
+$borderColor: rgb(149, 76, 237);
+$fontFamilyMain: 'Courier New', Courier, monospace;
+$backgroundColorDarken: darken($backgroundColor, 10%);
+$backgroundColorLighten: lighten($backgroundColor, 10%);
+$smallDeviceFont: 17px;
+$borderRadius: 25px;
+
+@mixin flex-column($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin card-style {
+    background-color: $backgroundColorDarken;
+    border: 4px solid $borderColor;
+    border-radius: $borderRadius;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 0;
+    padding: 20px;
+    color: $fontColor;
+    background-color: $backgroundColor;
+    font-family: $fontFamilyMain;
+
+    h2 { margin-left: 25px; }
+    h3 { margin-left: 15px; }
+    p  { margin-left: 15px; }
+}
+
+.info-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        max-height: 25rem;
+    }
+}
+
+.skills-list {
+    @include card-style;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects-container {
+    @include card-style;
+    @include flex-column(20px);
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+
+    h1 {
+        margin-left: 25px;
+    }
+}
+
+.project {
+    margin: 0 auto;
+    transition: 0.4s;
+    p {
+        font-size: 19px; 
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 20px 10px $backgroundColorLighten;
+    }
+
+    a:hover {
+        color: $backgroundColor;
+        background-color: $backgroundColorLighten;
+        transition: 0.5s;
+    }
+}
+
+.project-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: auto;
+}
+
+.project-image img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.reviews-container {
+    @include card-style;
+    @include flex-column(25px);
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.review {
+    background-color: $backgroundColorLighten;
+    border-radius: $borderRadius;
+    padding: 20px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.reviewer-logo img {
+    width: 47px;
+    height: 47px;
+    border: 2px solid $backgroundColorDarken;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact-container {
+    @include card-style;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    margin: 20px auto;
+}
+
+.contacts {
+    @include flex-column(10px);
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: $backgroundColorDarken;
+    color: $fontColor;
+    text-decoration: none;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: lighten($backgroundColorDarken, 5%);
+    }
+}
+
+.feedback-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    @include card-style;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    margin: 20px auto;
+
+    h3 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+.form {
+    @include flex-column(15px);
+    width: 100%;
+
+    label {
+        font-weight: bold;
+        margin-bottom: -5px;
+    }
+
+    input, textarea, button {
+        width: 90%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: 2px solid $borderColor;
+        background-color: $backgroundColor;
+        color: $fontColor;
+        font-family: inherit;
+    }
+
+    textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    button {
+        width: 94%;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: $borderColor;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($borderColor, 10%);
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        font-size: $smallDeviceFont;
+        padding: 15px;
+    }
+
+    .info-container,
+    .skills-list,
+    .projects-container,
+    .reviews-container,
+    .contact-container,
+    .form-container {
+        width: 89%;
+        max-width: 89%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-gallery {
+        justify-content: center;
+    }
+
+    .project-image img {
+        max-width: 200px;
+    }
+
+    .contacts {
+        max-width: 100%;
+    }
+
+    .contact a {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        gap: 15px;
+    }
+
+    h2 {
+        margin-left: 10px;
+    }
+
+    h3 {
+        margin-left: 5px;
+    }
+
+    p { 
+        margin-left: 5px;
+    }
+
+    .info-container,
+    .skills-list,
+    .projects-container,
+    .reviews-container,
+    .contact-container,
+    .form-container {
+        width: 89%;
+        max-width: 89%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .reviewer-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .form-container h3 {
+        font-size: 22px;
+    }
+}
