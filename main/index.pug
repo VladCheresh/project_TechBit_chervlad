@@ -1,0 +1,138 @@
+mixin info(logo)
+    .info
+        .logotype
+            img(decoding="async" src=logo alt="Наш логотип")
+
+mixin info-list(skills)
+    .skills-list
+        h2 Что мы умеем?
+        ul
+            each skill in skills
+                li= skill
+
+mixin projects(projectsData)
+    each project in projectsData
+        .project
+            h2= project.name
+            .project-gallery
+                each image in project.gallery
+                    .project-image
+                        img(decoding="async" src=image alt="Фото проекта")
+            .project-body
+                p= project.description
+                a(href=project.link target="_blank" rel="noopener noreferrer") Подробнее
+
+mixin reviews(reviewsData)
+    h2 Что о нас говорят?
+    each reviewItem in reviewsData
+        .review
+            .reviewer-info
+                .reviewer-logo
+                    img(decoding="async" src=reviewItem.logo alt="Фото профиля автора комментария")
+                .reviewer
+                    h3= reviewItem.name
+            .review-content
+                p= reviewItem.text
+
+mixin contacts(address, phone, email, telegram)
+    h3 Контакты
+    .contacts
+        .contact
+            a(href=address target="_blank" rel="noopener noreferrer")
+                i.fas.fa-home
+                | Адрес
+        .contact
+            a(href=`tel:${phone}` target="_blank" rel="noopener noreferrer")
+                i.fas.fa-phone
+                | Номер телефона
+        .contact
+            a(href=`mailto:${email}` target="_blank" rel="noopener noreferrer")
+                i.fas.fa-envelope
+                | Электронная почта
+        .contact
+            a(href=telegram target="_blank" rel="noopener noreferrer")
+                i.fab.fa-telegram
+                | Телеграм
+
+mixin feedback-form()
+    .form-container
+        h3 Обратная связь
+        form.form(action="https://example.com" method="post" target="_blank" rel="noopener noreferr")
+            label(for="name") Имя:
+            input(type="text" id="name" name="username" placeholder="Введите имя" required)
+            label(for="email") Email:
+            input(type="email" id="email" name="email" placeholder="example123@example.com" required)
+            label(for="feedback") Сообщение:
+            textarea(id="feedback" name="feedback" rows="4" placeholder="Введите сообщение" required)
+            button(type="submit") Отправить
+
+-
+    var info = {
+        logo: "images/TechBit-logo.png",
+    };
+
+-
+    var skillsList = [
+        "Настройка серверов для стабильной работы",
+        "Верстка сайтов",
+        "Перепрограммирование техники",
+        "Разработка скриптов",
+        "Решение любых технических и программных проблем"
+    ];
+
+-
+    var projectsData = [
+        {
+            name: "Умный холодильник",
+            gallery: ["images/project1_1.png", "images/project1_2.png"],
+            description: "Сам в нужное время разморозится, помоется и... а нужно больше?",
+            link: "images/project1_1.png"
+        },
+        {
+            name: "Верстка сайта",
+            gallery: ["images/project2_1.png", "images/project2_2.png"],
+            description: "Сделали верстку для example.com",
+            link: "https://example.com"
+        }
+    ];
+
+-
+    var reviewsData = [
+        { logo: "images/reviewer1.png", name: "Василий Матвеевич", text: "Сотрудничаю с ними уже не первый год, заканчивать даже не думаю, лучшие в своем роде." },
+        { logo: "images/reviewer2.png", name: "Дарья Владимировна", text: "Не смотря на низкую цену услуг - справились на все 100!" },
+        { logo: "images/reviewer3.png", name: "Станислав Владиславович", text: "Лучшие ребята что я когда-либо встречал!" },
+        { logo: "images/reviewer4.png", name: "Мария Георгиевна", text: "Отличный сервис, цена-качество на уровне." }
+    ];
+
+-
+    var contactsData = {
+        address: "https://yandex.ru/maps/-/CPrVUN8k",
+        phone: "8 (765) 432-10-98",
+        email: "TechBit47V@example.com",
+        telegram: "https://t.me/VV82E"
+    };
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="styles/styles.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")
+        title Главная страница - ТехБит Сервис
+    body
+        header
+            .info-container
+                +info(info.logo)
+        main
+            section.skills-container
+                +info-list(skillsList)
+            section.projects-container
+                h1 Наши величайшие проекты:
+                +projects(projectsData)
+            section.reviews-container
+                +reviews(reviewsData)
+            section.contact-container
+                +contacts(contactsData.address, contactsData.phone, contactsData.email, contactsData.telegram)
+            section.feedback-section
+                +feedback-form()
