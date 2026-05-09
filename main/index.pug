@@ -1,14 +1,33 @@
-mixin info(logo)
-    .info
-        .logotype
-            img(decoding="async" src=logo alt="Наш логотип")
+mixin aboutUs(defaultName, defaultDescription, defaultAvatar, skills)
+    section.about-us
+        .profile-header
+            img#profile-avatar(
+                decoding="async"
+                src=defaultAvatar
+                alt="Фото профиля"
+            )
+            h2#profile-name= defaultName
+            p#profile-description= defaultDescription
+        .skills-list
+            h2 Что мы умеем?
+            ul
+                each skill in skills
+                    li= skill
 
-mixin info-list(skills)
-    .skills-list
-        h2 Что мы умеем?
-        ul
-            each skill in skills
-                li= skill
+mixin settingsForm()
+    section.settings
+        form#settings-form(novalidate)
+            .form-group
+                label(for="avatar-input") Аватар
+                input#avatar-input(type="file" accept="image/*")
+            .form-group
+                label(for="name-input") ФИО
+                input#name-input(type="text" required placeholder="Ваше имя")
+            .form-group
+                label(for="description-input") Описание
+                textarea#description-input(required placeholder="Расскажите о себе")
+            button(type="submit") Сохранить
+            button(type="reset") Сбросить изменения
 
 mixin projects(projectsData)
     each project in projectsData
@@ -67,11 +86,6 @@ mixin feedback-form()
             button(type="submit") Отправить
 
 -
-    var info = {
-        logo: "images/TechBit-logo.png",
-    };
-
--
     var skillsList = [
         "Настройка серверов для стабильной работы",
         "Верстка сайтов",
@@ -117,16 +131,17 @@ html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        script(src="script/script.js" defer)
         link(rel="stylesheet" href="styles/styles.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")
         title Главная страница - ТехБит Сервис
     body
         header
             .info-container
-                +info(info.logo)
+                +aboutUs("TechBit", "Решаем ваши проблемы нашими силами", "images/TechBit-logo.png", skillsList)
+            .settings-form
+                +settingsForm()
         main
-            section.skills-container
-                +info-list(skillsList)
             section.projects-container
                 h1 Наши величайшие проекты:
                 +projects(projectsData)
