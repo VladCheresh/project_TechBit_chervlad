@@ -30,19 +30,16 @@ body p {
   margin: auto;
 }
 .info-container img {
+  border-radius: 10px;
   max-width: 100%;
   height: auto;
   max-height: 25rem;
 }
 
 .skills-list {
-  background-color: rgb(5.7142857143, 17.1428571429, 34.2857142857);
-  border: 4px solid rgb(149, 76, 237);
-  border-radius: 25px;
   padding: 20px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
 }
 
 .projects-container {
@@ -225,6 +222,107 @@ body p {
   background-color: rgb(121.5583756345, 29.6598984772, 232.3401015228);
 }
 
+.about-us {
+  background-color: rgb(5.7142857143, 17.1428571429, 34.2857142857);
+  border: 4px solid rgb(149, 76, 237);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+.profile-header img {
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 17%;
+  border: 3px solid rgb(149, 76, 237);
+  object-fit: cover;
+}
+.profile-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+.profile-header p {
+  margin: 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.settings {
+  background-color: rgb(5.7142857143, 17.1428571429, 34.2857142857);
+  border: 4px solid rgb(149, 76, 237);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  padding: 30px;
+  margin: 20px auto;
+}
+
+#settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+#settings-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#settings-form label {
+  font-weight: bold;
+  font-size: 16px;
+}
+#settings-form input[type=text],
+#settings-form textarea,
+#settings-form button {
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid rgb(149, 76, 237);
+  background-color: rgb(13, 39, 78);
+  color: rgb(240, 205, 255);
+  font-family: inherit;
+}
+#settings-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+#settings-form input[type=file] {
+  color: rgb(240, 205, 255);
+}
+#settings-form button {
+  width: 98%;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(149, 76, 237);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#settings-form button:hover {
+  background-color: rgb(121.5583756345, 29.6598984772, 232.3401015228);
+}
+
 @media (max-width: 1024px) {
   body {
     font-size: 17px;
@@ -235,7 +333,9 @@ body p {
   .projects-container,
   .reviews-container,
   .contact-container,
-  .form-container {
+  .form-container,
+  .about-us,
+  .settings {
     width: 89%;
     max-width: 89%;
     margin-left: auto;
@@ -273,7 +373,9 @@ body p {
   .projects-container,
   .reviews-container,
   .contact-container,
-  .form-container {
+  .form-container,
+  .about-us,
+  .settings {
     width: 89%;
     max-width: 89%;
     margin-left: auto;
@@ -286,6 +388,16 @@ body p {
   }
   .form-container h3 {
     font-size: 22px;
+  }
+  .profile-header img {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  .profile-header h2 {
+    font-size: 22px;
+  }
+  .profile-header p {
+    font-size: 16px;
   }
 }
 

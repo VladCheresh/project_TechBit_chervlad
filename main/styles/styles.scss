@@ -46,6 +46,7 @@ body {
     margin: auto;
 
     img {
+        border-radius: 10px;
         max-width: 100%;
         height: auto;
         max-height: 25rem;
@@ -53,11 +54,9 @@ body {
 }
 
 .skills-list {
-    @include card-style;
     padding: 20px;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
 }
 
 .projects-container {
@@ -230,6 +229,103 @@ body {
     }
 }
 
+.about-us {
+    @include card-style;
+    @include flex-column(20px);
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    @include flex-column(10px);
+    align-items: center;
+    text-align: center;
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        width: 100%;
+        height: auto;
+        border-radius: 17%;
+        border: 3px solid $borderColor;
+        object-fit: cover;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+}
+
+.settings {
+    @include card-style;
+    @include flex-column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    margin: 20px auto;
+}
+
+#settings-form {
+    @include flex-column(15px);
+    width: 100%;
+
+    .form-group {
+        @include flex-column(5px);
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    textarea,
+    button {
+        width: 95%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: 2px solid $borderColor;
+        background-color: $backgroundColor;
+        color: $fontColor;
+        font-family: inherit;
+    }
+
+    textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    input[type="file"] {
+        color: $fontColor;
+    }
+
+    button {
+        width: 98%;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $borderColor;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($borderColor, 10%);
+        }
+    }
+}
+
 @media (max-width: 1024px) {
     body {
         font-size: $smallDeviceFont;
@@ -241,7 +337,9 @@ body {
     .projects-container,
     .reviews-container,
     .contact-container,
-    .form-container {
+    .form-container,
+    .about-us,
+    .settings {
         width: 89%;
         max-width: 89%;
         margin-left: auto;
@@ -288,7 +386,9 @@ body {
     .projects-container,
     .reviews-container,
     .contact-container,
-    .form-container {
+    .form-container,
+    .about-us,
+    .settings {
         width: 89%;
         max-width: 89%;
         margin-left: auto;
@@ -303,5 +403,18 @@ body {
 
     .form-container h3 {
         font-size: 22px;
+    }
+
+    .profile-header {
+        img {
+            max-width: 120px;
+            max-height: 120px;
+        }
+        h2 {
+            font-size: 22px;
+        }
+        p {
+            font-size: 16px;
+        }
     }
 }
