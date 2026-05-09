@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Главная страница - ТехБит Сервис</title>
+  </head>
+  <body>
+    <header>
+      <div class="info-container">
+        <section class="about-us">
+          <div class="profile-header"><img id="profile-avatar" decoding="async" src="images/TechBit-logo.png" alt="Фото профиля"/>
+            <h2 id="profile-name">TechBit</h2>
+            <p id="profile-description">Решаем ваши проблемы нашими силами</p>
+          </div>
+          <div class="skills-list">
+            <h2>Что мы умеем?</h2>
+            <ul>
+              <li>Настройка серверов для стабильной работы</li>
+              <li>Верстка сайтов</li>
+              <li>Перепрограммирование техники</li>
+              <li>Разработка скриптов</li>
+              <li>Решение любых технических и программных проблем</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="settings-form">
+        <section class="settings">
+          <form id="settings-form" novalidate="novalidate">
+            <div class="form-group">
+              <label for="avatar-input">Аватар</label>
+              <input id="avatar-input" type="file" accept="image/*"/>
+            </div>
+            <div class="form-group">
+              <label for="name-input">ФИО</label>
+              <input id="name-input" type="text" required="required" placeholder="Ваше имя"/>
+            </div>
+            <div class="form-group">
+              <label for="description-input">Описание</label>
+              <textarea id="description-input" required="required" placeholder="Расскажите о себе"></textarea>
+            </div>
+            <button type="submit">Сохранить</button>
+            <button type="reset">Сбросить изменения</button>
+          </form>
+        </section>
+      </div>
+    </header>
+    <main>
+      <section class="projects-container">
+        <h1>Наши величайшие проекты:</h1>
+        <div class="project">
+          <h2>Умный холодильник</h2>
+          <div class="project-gallery">
+            <div class="project-image"><img decoding="async" src="images/project1_1.png" alt="Фото проекта"/></div>
+            <div class="project-image"><img decoding="async" src="images/project1_2.png" alt="Фото проекта"/></div>
+          </div>
+          <div class="project-body">
+            <p>Сам в нужное время разморозится, помоется и... а нужно больше?</p><a href="images/project1_1.png" target="_blank" rel="noopener noreferrer">Подробнее</a>
+          </div>
+        </div>
+        <div class="project">
+          <h2>Верстка сайта</h2>
+          <div class="project-gallery">
+            <div class="project-image"><img decoding="async" src="images/project2_1.png" alt="Фото проекта"/></div>
+            <div class="project-image"><img decoding="async" src="images/project2_2.png" alt="Фото проекта"/></div>
+          </div>
+          <div class="project-body">
+            <p>Сделали верстку для example.com</p><a href="https://example.com" target="_blank" rel="noopener noreferrer">Подробнее</a>
+          </div>
+        </div>
+      </section>
+      <section class="reviews-container">
+        <h2>Что о нас говорят?</h2>
+        <div class="review">
+          <div class="reviewer-info">
+            <div class="reviewer-logo"><img decoding="async" src="images/reviewer1.png" alt="Фото профиля автора комментария"/></div>
+            <div class="reviewer">
+              <h3>Василий Матвеевич</h3>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>Сотрудничаю с ними уже не первый год, заканчивать даже не думаю, лучшие в своем роде.</p>
+          </div>
+        </div>
+        <div class="review">
+          <div class="reviewer-info">
+            <div class="reviewer-logo"><img decoding="async" src="images/reviewer2.png" alt="Фото профиля автора комментария"/></div>
+            <div class="reviewer">
+              <h3>Дарья Владимировна</h3>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>Не смотря на низкую цену услуг - справились на все 100!</p>
+          </div>
+        </div>
+        <div class="review">
+          <div class="reviewer-info">
+            <div class="reviewer-logo"><img decoding="async" src="images/reviewer3.png" alt="Фото профиля автора комментария"/></div>
+            <div class="reviewer">
+              <h3>Станислав Владиславович</h3>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>Лучшие ребята что я когда-либо встречал!</p>
+          </div>
+        </div>
+        <div class="review">
+          <div class="reviewer-info">
+            <div class="reviewer-logo"><img decoding="async" src="images/reviewer4.png" alt="Фото профиля автора комментария"/></div>
+            <div class="reviewer">
+              <h3>Мария Георгиевна</h3>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>Отличный сервис, цена-качество на уровне.</p>
+          </div>
+        </div>
+      </section>
+      <section class="contact-container">
+        <h3>Контакты</h3>
+        <div class="contacts">
+          <div class="contact"><a href="https://yandex.ru/maps/-/CPrVUN8k" target="_blank" rel="noopener noreferrer"><i class="fas fa-home"></i>Адрес</a></div>
+          <div class="contact"><a href="tel:8 (765) 432-10-98" target="_blank" rel="noopener noreferrer"><i class="fas fa-phone"></i>Номер телефона</a></div>
+          <div class="contact"><a href="mailto:TechBit47V@example.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i>Электронная почта</a></div>
+          <div class="contact"><a href="https://t.me/VV82E" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i>Телеграм</a></div>
+        </div>
+      </section>
+      <section class="feedback-section">
+        <div class="form-container">
+          <h3>Обратная связь</h3>
+          <form class="form" action="https://example.com" method="post" target="_blank" rel="noopener noreferr">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="username" placeholder="Введите имя" required="required"/>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example123@example.com" required="required"/>
+            <label for="feedback">Сообщение:</label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Введите сообщение" required="required"></textarea>
+            <button type="submit">Отправить</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
